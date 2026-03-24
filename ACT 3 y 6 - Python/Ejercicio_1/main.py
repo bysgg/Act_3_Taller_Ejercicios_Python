@@ -1,10 +1,15 @@
 from modelos import Producto
+from modelos import Producto, OrdenCompra
 
-def test_inicial():
-    # Prueba de creación de producto según requerimientos (código, descripción, precio, etc.) [cite: 22]
-    p1 = Producto("A01", "Laptop Oficina", 2500.0, 10)
-    print("--- Prueba Bloque 1 ---")
-    print(p1)
+def test_ordenes():
+    print("\n--- Prueba Bloque 2: Órdenes y Stock ---")
+    p1 = Producto("A01", "Laptop", 2500.0, 2)
+    orden = OrdenCompra("Sebastian Gutierrez")
+    
+    # Intento exitoso
+    orden.agregar_item(p1, 1) 
+    # Intento fallido (supera el stock restante)
+    orden.agregar_item(p1, 5) 
 
 if __name__ == "__main__":
-    test_inicial()
+    test_ordenes()  
