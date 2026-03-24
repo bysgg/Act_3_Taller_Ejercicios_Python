@@ -1,7 +1,11 @@
 from modelos import Producto, OrdenCompra, TarjetaCredito, AgenteDeposito, Logistica, Queja
 
 def simulacion_televentas():
-    print("=== SISTEMA TELEVENTAS LA SALLE ===\n")
+
+# Usar un diseño de consola más limpio
+    print("="*40)
+    print("      SISTEMA TELEVENTAS LA SALLE")
+    print("="*40)
     
     # 1. Catálogo e Inventario
     p1 = Producto("TV01", "Smart TV 50", 1800000, 10)
@@ -21,9 +25,11 @@ def simulacion_televentas():
     # 4. Logística (Selección de transporte)
     Logistica.asignar_transporte(mi_orden, "Servientrega")
 
-    # 5. Soporte (Simulación de queja)
+# 5. Soporte (Remisión inmediata a gerencia)
+    print("\n" + "-"*40)
     reclamo = Queja("Sebastian G.", "Caja del TV un poco golpeada")
     reclamo.remitir()
+    print("="*40)
 
 if __name__ == "__main__":
     simulacion_televentas()
