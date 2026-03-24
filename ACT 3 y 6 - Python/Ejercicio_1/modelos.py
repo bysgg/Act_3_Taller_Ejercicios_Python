@@ -13,8 +13,21 @@ class Producto:
 
 class MetodoPago(ABC):
     @abstractmethod
-    def procesar(self, monto: float) -> None:
+    def procesar_pago(self, monto: float):
         pass
+
+class TarjetaCredito(MetodoPago):
+    def procesar_pago(self, monto: float):
+        print(f"Pago exitoso de ${monto} procesado con Tarjeta de Crédito.")
+
+class Queja:
+    def __init__(self, cliente: str, motivo: str):
+        self.cliente = cliente
+        self.motivo = motivo
+
+    def remitir_a_gerencia(self):
+        # Las quejas se remiten inmediatamente al gerente [cite: 30]
+        print(f"ALERTA GERENCIA: Queja recibida de {self.cliente} por: {self.motivo}")
 
 class OrdenCompra:
     def __init__(self, cliente: str):
