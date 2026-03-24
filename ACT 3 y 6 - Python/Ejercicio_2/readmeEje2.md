@@ -1,10 +1,20 @@
-# Ejercicio 2: Gestión del Museo
+# 🏛️ Sistema de Gestión de Obras de Arte - Museo La Salle
 
-## Fase Inicial de Desarrollo (Día 1)
+## Descripción del Proyecto
+Software diseñado para la automatización del catálogo, restauración y cesión internacional de obras de arte, con módulos de seguridad y reportes gerenciales.
 
-1. **Modelado de Herencia:** Diseño de una jerarquía de clases donde `ObraDeArte` es la clase base abstracta de la cual heredan `Cuadro` y `Escultura`.
-2. **Estructura de Datos Específica:** - `Cuadro`: Incorpora atributos de técnica y estilo.
-   - `Escultura`: Incorpora atributos de material y estilo.
-3. **Implementación de Polimorfismo:** Uso de métodos abstractos (`mostrar_detalle`) para asegurar que cada tipo de obra describa sus características únicas.
-4. **Tipado Estricto (Type Hinting):** Aplicación de `List` y `Optional` para preparar el sistema para la gestión de restauraciones y cesiones internacionales.
-5. **Validación de Arquitectura:** Verificación de la instanciación de objetos y consistencia de datos en consola.
+## Conceptos de POO Aplicados
+* **Herencia:** Jerarquía clara entre `ObraDeArte` (Padre), `Cuadro` y `Escultura` (Hijos).
+* **Polimorfismo:** Uso de métodos abstractos (`mostrar_detalle`) que se comportan diferente según el tipo de obra.
+* **Lógica de Negocio Compleja:** Algoritmo de detección automática de mantenimiento basado en el tiempo (`timedelta`).
+* **Seguridad:** Sistema de autenticación de usuarios basado en roles (Director, Restaurador, Encargado).
+
+## Reglas de Negocio Implementadas
+1.  **Mantenimiento Quinquenal:** El sistema identifica diariamente obras con más de 5 años desde su última restauración.
+2.  **Lista de Espera:** Si una obra está en restauración o cedida, las nuevas solicitudes de museos quedan en cola.
+3.  **Valoración Patrimonial:** El Director puede obtener el valor total de la colección en tiempo real.
+
+## Instrucciones de Ejecución
+Ejecutar el flujo integral:
+```bash
+python main_museo.py

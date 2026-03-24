@@ -1,10 +1,21 @@
-# Ejercicio 1: Sistema TeleVentas
+# 🛒 Sistema TeleVentas La Salle
 
-## Metodología de Desarrollo Paso a Paso
+## Descripción del Proyecto
+Este módulo automatiza el ciclo de compra a distancia, integrando la gestión de inventario, pasarela de pagos, logística de distribución y soporte al cliente.
 
-1. **Análisis de Requisitos:** Se identificaron los actores (Cliente, Agente de Depósito, Logística y Gerente) y sus responsabilidades.
-2. **Abstracción de Datos:** Definición de la clase `Producto` con gestión de stock integrada.
-3. **Aplicación de Principios SOLID:** - Se implementó la clase abstracta `MetodoPago` (Inversión de Dependencia) para permitir que el sistema escale a nuevos medios de pago sin modificar la lógica de la orden.
-4. **Lógica de Negocio:** Desarrollo de `OrdenCompra` con validaciones de disponibilidad en tiempo real.
-5. **Flujo de Proceso:** Integración del empaquetado en depósito y la delegación a empresas de logística externas.
-6. **Gestión de Soporte:** Canalización directa de quejas hacia la gerencia de relaciones.
+## Conceptos de POO Aplicados
+* **Abstracción:** Implementación de la clase base `MetodoPago` para desacoplar la lógica de cobro del flujo de la orden.
+* **Encapsulamiento:** Gestión de estados de la orden (`PENDIENTE`, `PAGADA`, `ARMADA`, `ENVIADA`) para asegurar la integridad del proceso.
+* **Relación de Composición:** La `OrdenCompra` gestiona una colección de objetos `Producto`.
+* **Responsabilidad Única (SRP):** Clases separadas para `Logistica`, `AgenteDeposito` y `Queja`.
+
+## Estructura de Clases
+* `Producto`: Entidad básica con atributos de stock y precio.
+* `OrdenCompra`: Cerebro del proceso que valida existencias y estados.
+* `Logistica`: Clase estática encargada de la delegación a empresas de transporte.
+* `Queja`: Sistema de remisión inmediata a la Gerencia de Relaciones.
+
+## Instrucciones de Ejecución
+Ejecutar el archivo principal:
+```bash
+python main.py
