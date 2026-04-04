@@ -13,12 +13,13 @@ class Restauracion:
         return f"[{self.fecha_inicio.date()}] Tipo: {self.tipo} - {estado}"
 
 class ObraDeArte(ABC):
-    def __init__(self, titulo: str, autor: str, periodo: str, valor: float, fecha_creacion: str):
+    def __init__(self, titulo: str, autor: str, periodo: str, valor: float, fecha_creacion: str, estilo: str):
         self.titulo = titulo
         self.autor = autor
         self.periodo = periodo
         self.valor = valor
         self.fecha_creacion = fecha_creacion
+        self.estilo = estilo
         self.fecha_entrada_museo = datetime.now()
         self.estado = "Expuesta"  
         self.ultima_restauracion: datetime = self.fecha_entrada_museo
@@ -66,8 +67,7 @@ class ObraDeArte(ABC):
 
 class Cuadro(ObraDeArte):
     def __init__(self, titulo: str, autor: str, periodo: str, valor: float, fecha_creacion: str, estilo: str, tecnica: str):
-        super().__init__(titulo, autor, periodo, valor, fecha_creacion)
-        self.estilo = estilo
+        super().__init__(titulo, autor, periodo, valor, fecha_creacion, estilo) # Pasamos estilo al padre
         self.tecnica = tecnica
 
     def mostrar_detalle(self) -> str:
@@ -75,8 +75,7 @@ class Cuadro(ObraDeArte):
 
 class Escultura(ObraDeArte):
     def __init__(self, titulo: str, autor: str, periodo: str, valor: float, fecha_creacion: str, estilo: str, material: str):
-        super().__init__(titulo, autor, periodo, valor, fecha_creacion)
-        self.estilo = estilo
+        super().__init__(titulo, autor, periodo, valor, fecha_creacion, estilo) # Pasamos estilo al padre
         self.material = material
 
     def mostrar_detalle(self) -> str:
